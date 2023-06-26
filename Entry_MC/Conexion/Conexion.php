@@ -2,7 +2,7 @@
 
     class Conexion{
                     private $servidor = "appentrymc.mysql.database.azure.com";
-                    private $usuario = "admonentrymc";
+                    private $usuario = "AdmonEntryMc";
                     private $password = "super123*.";
                     private $db = "appentrymc";
 
