@@ -1,10 +1,10 @@
 <?php
 
     class Conexion{
-                    private $servidor = "localhost";
-                    private $usuario = "root";
-                    private $password = "";
-                    private $db = "entry_mc";
+                    private $servidor = "appentrymc.mysql.database.azure.com";
+                    private $usuario = "admonentrymc";
+                    private $password = "super123*.";
+                    private $db = "appentrymc";
 
 
 
