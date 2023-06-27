@@ -192,7 +192,7 @@ if ($_POST) {
                         <div class="container-fluid">
                         </div>
                         <?php
-                        $conexion = new mysqli("localhost", "root", "", "entry_mc",3307);                     
+                        $conexion = new mysqli("appentrymc.mysql.database.azure.com", "AdmonEntryMc", "super123*.", "appentrymc");                     
                         if ($conexion->connect_error) {
                             die("Error de conexión: " . $conexion->connect_error);
                         }
