@@ -5,6 +5,7 @@
                     private $usuario = "AdmonEntryMc";
                     private $password = "super123*.";
                     private $db = "appentrymc";
+                    //private $port = 3307;
 
 
 

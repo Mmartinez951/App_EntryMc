@@ -1,13 +1,8 @@
 <?php
 session_start(); // Iniciar sesión o reanudar una sesión existente
-
-$conexion = new mysqli($servidor = "localhost", $usuario = "root", $password = "", $db = "entry_mc");
-
-// Verificar si la conexión fue exitosa
-if ($conexion->connect_errno) {
-    echo 'Error al conectar a la base de datos: ' . $conexion->connect_error;
-    exit();
-}
+include("Conexion/Conexion.php");
+$c = new Conexion();
+$cone = $c->conectando();
 
 // Verificar las credenciales del usuario
 $Usuario_Login = $_POST['Usuario_Login'];
@@ -15,7 +10,7 @@ $Usuario_Password = $_POST['Usuario_Password'];
 
 // Consulta SQL para obtener los datos del usuario
 $consulta = "SELECT * FROM usuarios WHERE login = '$Usuario_Login' AND password = '$Usuario_Password'";
-$resultado = $conexion->query($consulta);
+$resultado = $cone->query($consulta);
 
 // Comprobar si se encontró un resultado válido
 if ($resultado && $resultado->num_rows > 0) {

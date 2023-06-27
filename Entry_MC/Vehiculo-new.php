@@ -1,47 +1,4 @@
 <?php
-
-session_start();
-
-
-if (!isset($_SESSION['Usuario_Id'])) {
-
-	header("Location: index.php");
-	exit();
-}
-
-// Conexión a la base de datos
-$conexion = new mysqli($servidor = "localhost", $usuario = "root", $password = "", $db = "entry_mc");
-
-
-if ($conexion->connect_errno) {
-	echo 'Error al conectar a la base de datos: ' . $conexion->connect_error;
-	exit();
-}
-
-
-$usuario_id = $_SESSION['Usuario_Id'];
-
-
-$sql = "SELECT u.Nombre_Usuario, u.Apellido_Usuario, r.Nombre_Rol FROM Usuarios u JOIN Roles r ON u.Id_Rol = r.Id_Rol WHERE u.Id_Usuario = $usuario_id";
-$resultado = $conexion->query($sql);
-
-// Verificar si se encontraron resultados
-if ($resultado->num_rows > 0) {
-	$fila = $resultado->fetch_assoc();
-	$nombre_usuario = $fila["Nombre_Usuario"];
-	$apellido_usuario = $fila["Apellido_Usuario"];
-	$nombre_rol = $fila["Nombre_Rol"];
-} else {
-	$nombre_usuario = "";
-	$apellido_usuario = "";
-	$nombre_rol = "";
-}
-
-// Cerrar la conexión a la base de datos
-$conexion->close();
-?>
-
-<?php
 include("./Conexion/Conexion.php");
 include("./Controlador/VehiculoControlador.php");
 $obj = new Vehiculos();
@@ -114,12 +71,7 @@ if ($_POST) {
 					<i class="far fa-times-circle show-nav-lateral"></i>
 					<img src="./assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
 					<figcaption class="roboto-medium text-center">
-						<small class="roboto-condensed-light">Bienvenido,
-							<?php echo $nombre_usuario; ?>
-							<?php echo $apellido_usuario; ?>
-							<p>Rol:
-								<?php echo $nombre_rol; ?>
-							</p>
+						<small class="roboto-condensed-light">Bienvenido EntryMC
 							<br>
 						</small>
 					</figcaption>
