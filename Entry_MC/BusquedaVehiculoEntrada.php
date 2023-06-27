@@ -130,7 +130,8 @@ $RegistroEntrada = mysqli_fetch_array($ejecuta);
                                     class="fas fa-chevron-down"></i></a>
                             <ul>
                                 <li>
-                                    <a href="Ordenes-Trabajo-List.php"><i class="fas fa-ticket-alt"></i> &nbsp; Ordenes de
+                                    <a href="Ordenes-Trabajo-List.php"><i class="fas fa-ticket-alt"></i> &nbsp; Ordenes
+                                        de
                                         Trabajo</a>
                                 </li>
                         </li>
@@ -188,7 +189,7 @@ $RegistroEntrada = mysqli_fetch_array($ejecuta);
                 <?php
                 /* $conexion = new mysqli("localhost", "root", "", "entry_mc"); */
                 $c = new Conexion();
-	            $cone = $c->conectando();
+                $cone = $c->conectando();
                 if ($cone->connect_error) {
                     die("Error de conexión: " . $cone->connect_error);
                 }
@@ -263,13 +264,13 @@ $RegistroEntrada = mysqli_fetch_array($ejecuta);
                                         <td>
                                             <?php echo $fila['Fecha_Registro_Entrada']; ?>
                                         </td>
-										<td>
-											<a href=" <?php if ($RegistroEntrada[0] <> '') {
-												echo "Registro-Entrada-Update.php?key=" . urlencode($RegistroEntrada[0]);
-											} ?>" class="btn btn-success">
-												<i class="fas fa-edit"></i>
-											</a>
-										</td>
+                                        <td>
+                                            <a href=" <?php if ($RegistroEntrada[0] <> '') {
+                                                echo "Registro-Entrada-Update.php?key=" . urlencode($RegistroEntrada[0]);
+                                            } ?>" class="btn btn-success">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 <?php } ?>
 
